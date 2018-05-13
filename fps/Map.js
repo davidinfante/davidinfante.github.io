@@ -39,7 +39,7 @@ class Map {
 
     objetivo.addEventListener ( 'collision' , function (elOtroObjeto , velocidad , rotacion , normal) { 
       var sound = new Howl({
-        src: ['animals020.mp3'], volume: 0.8
+        src: ['fps/animals020.mp3'], volume: 0.8
       });
       sound.play();
     }) ;

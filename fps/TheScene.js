@@ -75,7 +75,7 @@ class TheScene extends Physijs.Scene {
 
   dispara() {
     if(this.index >= this.maxBullets) this.index = 0;
-    this.bullets.dispara(this.index, this.avatar.getPosition(), this.controls.getTarget(), this.camera.position.y);
+    this.bullets.dispara(this.index, this.avatar.getPosition(), this.camera.getWorldDirection());
     this.index++;
   }
 
@@ -110,20 +110,19 @@ class TheScene extends Physijs.Scene {
     this.crosshair = new Crosshair();
     model.add( this.crosshair );
 
-    this.avatar = new Avatar(this.camera, this.controls, this);
-    //model.add(this.avatar);
+    this.avatar = new Avatar(this.camera, this);
 
     this.skybox = new Skybox();
     model.add(this.skybox);
 
     var loader = new THREE.TextureLoader();
-    var textura = loader.load ("imgs/wood.jpg");
+    var textura = loader.load ("fps/imgs/wood.jpg");
 
     this.bullets = new Bullets(this.maxBullets, this, (new THREE.MeshPhongMaterial ({map: textura})));
 
     //Creates the map
     var loader = new THREE.TextureLoader();
-    var textura = loader.load ("imgs/wood.jpg");
+    var textura = loader.load ("fps/imgs/wood.jpg");
     var mat = Physijs.createMaterial(new THREE.MeshPhongMaterial ({map: textura}),1,0);
     this.map = new Map(mat, 0);
     for (var i = 0; i < this.map.getMapSize(); ++i) {
