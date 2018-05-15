@@ -97,12 +97,12 @@ class Avatar {
         var texture = null;
 
         mtlLoader.setPath( "fps/models/" );
-        mtlLoader.load( "fps/material.mtl" , function ( materials ) {
+        mtlLoader.load( "material.mtl" , function ( materials ) {
             materials.preload();
             
             objLoader.setMaterials( materials );
             objLoader.setPath( "fps/models/" );
-            objLoader.load( "fps/m4a1_s.obj", function ( object ) {
+            objLoader.load( "m4a1_s.obj", function ( object ) {
                 texture = THREE.ImageUtils.loadTexture('fps/models/m4a1_stext.png');
                 object.children[1].material = new THREE.MeshLambertMaterial({map: texture});
 
@@ -117,12 +117,12 @@ class Avatar {
         });
 
         mtlLoader.setPath( "fps/models/" );
-        mtlLoader.load( "fps/material.mtl" , function ( materials ) {
+        mtlLoader.load( "material.mtl" , function ( materials ) {
             materials.preload();
 
             objLoader.setMaterials( materials );
             objLoader.setPath( "fps/models/" );
-            objLoader.load( "fps/escopeta.obj", function ( object ) {
+            objLoader.load( "escopeta.obj", function ( object ) {
                 texture = THREE.ImageUtils.loadTexture('fps/models/escopetatext.png');
                 object.children[0].material = new THREE.MeshLambertMaterial({map: texture});
                 
