@@ -146,7 +146,7 @@ class Avatar {
             objLoader.setMaterials( materials );
             objLoader.setPath( "fps/models/" );
             objLoader.load( "m4a1_s.obj", function ( object ) {
-                texture = THREE.TextureLoader('fps/models/m4a1_stext.png');
+                texture = THREE.ImageUtils.loadTexture('fps/models/m4a1_stext.png');
                 object.children[1].material = new THREE.MeshLambertMaterial({map: texture});
 
                 //m4a1_s
@@ -166,7 +166,7 @@ class Avatar {
             objLoader.setMaterials( materials );
             objLoader.setPath( "fps/models/" );
             objLoader.load( "escopeta.obj", function ( object ) {
-                texture = THREE.TextureLoader('fps/models/escopetatext.png');
+                texture = THREE.ImageUtils.loadTexture('fps/models/escopetatext.png');
                 object.children[0].material = new THREE.MeshLambertMaterial({map: texture});
                 
                 //Escopeta
@@ -175,8 +175,8 @@ class Avatar {
                 object.children[0].rotation.set(0.2, -1.2, 0);
                 object.children[0].position.set(2, -1.4 , -6);
                 thatCamera.add(object.children[0]);
-                thatCamera.children[2].material.transparent = true;
-                thatCamera.children[2].material.opacity = 0.0;
+                thatCamera.children[1].material.transparent = true;
+                thatCamera.children[1].material.opacity = 0.0;
 
             });
         });
