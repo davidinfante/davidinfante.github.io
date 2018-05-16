@@ -179,8 +179,5 @@ class Avatar {
             });
         });
 
-        this.camera.children[2].material.transparent = true;
-        this.camera.children[2].material.opacity = 0.0;
-
     }
 }
