@@ -146,7 +146,7 @@ class Avatar {
             objLoader.setMaterials( materials );
             objLoader.setPath( "fps/models/" );
             objLoader.load( "m4a1_s.obj", function ( object ) {
-                texture = THREE.ImageUtils.loadTexture('fps/models/m4a1_stext.png');
+                texture = THREE.TextureLoader('fps/models/m4a1_stext.png');
                 object.children[1].material = new THREE.MeshLambertMaterial({map: texture});
 
                 //m4a1_s
@@ -166,7 +166,7 @@ class Avatar {
             objLoader.setMaterials( materials );
             objLoader.setPath( "fps/models/" );
             objLoader.load( "escopeta.obj", function ( object ) {
-                texture = THREE.ImageUtils.loadTexture('fps/models/escopetatext.png');
+                texture = THREE.TextureLoader('fps/models/escopetatext.png');
                 object.children[0].material = new THREE.MeshLambertMaterial({map: texture});
                 
                 //Escopeta
