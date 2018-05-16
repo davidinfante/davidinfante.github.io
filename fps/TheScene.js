@@ -87,13 +87,13 @@ class TheScene extends Physijs.Scene {
     model.add(this.skybox);
 
     var loader = new THREE.TextureLoader();
-    var textura = loader.load ("imgs/bullettext.jpg");
+    var textura = loader.load ("fps/imgs/bullettext.jpg");
 
     this.bullets = new Bullets(this.maxBullets, this, (new THREE.MeshPhongMaterial ({map: textura})));
 
     //Creates the map
     var loader = new THREE.TextureLoader();
-    var textura = loader.load ("imgs/wood.jpg");
+    var textura = loader.load ("fps/imgs/wood.jpg");
     var mat = Physijs.createMaterial(new THREE.MeshPhongMaterial ({map: textura}),1,0);
     this.map = new Map();
     for (var i = 0; i < this.map.getMapSize(); ++i) {

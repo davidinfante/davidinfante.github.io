@@ -142,14 +142,14 @@ class Avatar {
         var objLoader = new THREE.OBJLoader();
         var texture = null;
 
-        mtlLoader.setPath( "models/" );
+        mtlLoader.setPath( "fps/models/" );
         mtlLoader.load( "material.mtl" , function ( materials ) {
             materials.preload();
             
             objLoader.setMaterials( materials );
-            objLoader.setPath( "models/" );
+            objLoader.setPath( "fps/models/" );
             objLoader.load( "m4a1_s.obj", function ( object ) {
-                texture = THREE.ImageUtils.loadTexture('models/m4a1_stext.png');
+                texture = THREE.ImageUtils.loadTexture('fps/models/m4a1_stext.png');
                 object.children[1].material = new THREE.MeshLambertMaterial({map: texture});
                 //m4a1_s
                 object.children[1].position.set(0, 0, 0);
@@ -163,14 +163,14 @@ class Avatar {
             });
         });
 
-        mtlLoader.setPath( "models/" );
+        mtlLoader.setPath( "fps/models/" );
         mtlLoader.load( "material.mtl" , function ( materials ) {
             materials.preload();
 
             objLoader.setMaterials( materials );
-            objLoader.setPath( "models/" );
+            objLoader.setPath( "fps/models/" );
             objLoader.load( "escopeta.obj", function ( object ) {
-                texture = THREE.ImageUtils.loadTexture('models/escopetatext.png');
+                texture = THREE.ImageUtils.loadTexture('fps/models/escopetatext.png');
                 object.children[0].material = new THREE.MeshLambertMaterial({map: texture});
                 
                 //Escopeta
