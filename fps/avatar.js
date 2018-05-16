@@ -93,13 +93,13 @@ class Avatar {
     }
 
     changeWeapon() {
-        if (this.activeWeapon == 0) {
+        if (this.activeWeapon == 1) {
             this.camera.children[2].material.transparent = true;
             this.camera.children[2].material.opacity = 0.0;
             this.camera.children[1].material.transparent = false;
             this.camera.children[1].material.opacity = 1.0;
             this.activeWeapon = 1;
-        } else if (this.activeWeapon == 1) {
+        } else if (this.activeWeapon == 0) {
             this.camera.children[1].material.transparent = true;
             this.camera.children[1].material.opacity = 0.0;
             this.camera.children[2].material.transparent = false;
@@ -109,7 +109,7 @@ class Avatar {
     }
 
     animateWeapon() {
-        if (this.activeWeapon == 0) {
+        if (this.activeWeapon == 1) {
             if (this.recoil) {
                 if (this.camera.children[1].rotation.x >= 0.2) this.recoil = false;
                 else this.camera.children[1].rotation.x += 0.1;
@@ -119,7 +119,7 @@ class Avatar {
                     this.recoil = true;
                 } else this.camera.children[1].rotation.x -= 0.1;
             }
-        } else if (this.activeWeapon == 1) {
+        } else if (this.activeWeapon == 0) {
             if (this.recoil) {
                 if (this.camera.children[2].rotation.x >= 1.8) this.recoil = false;
                 else this.camera.children[2].rotation.x += 0.1;
