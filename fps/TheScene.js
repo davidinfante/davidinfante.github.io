@@ -11,23 +11,22 @@ class TheScene extends Physijs.Scene {
     this.setGravity(new THREE.Vector3 (0, -50, 0));
 
     // Attributes
-    this.ambientLight = null;
-    this.spotLight = null;
     this.camera = aCamera;
+    this.createCamera (renderer);
+    this.avatar = null;
     this.map = null;
     this.skybox = null;
-    this.crosshair = null;
     this.Bullets = null;
     this.index = 0;
     this.maxBullets = 20;
-    this.avatar = null;
+    this.model = this.createModel();
+    this.avatar.loadWeapons();
+    this.ambientLight = null;
+    this.spotLight = null;
     this.createLights ();
-    this.createCamera (renderer);
     this.axis = new THREE.AxisHelper (25);
     this.add (this.axis);
-    this.model = this.createModel ();
     this.add (this.model);
-    this.avatar.loadWeapons();
   }
   
   /// It creates the camera and adds it to the graph
@@ -81,9 +80,6 @@ class TheScene extends Physijs.Scene {
    */
   createModel () {
     var model = new THREE.Object3D();
-
-    this.crosshair = new Crosshair();
-    model.add( this.crosshair );
 
     this.avatar = new Avatar(this.camera, controls, this);
 
