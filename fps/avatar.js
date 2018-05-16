@@ -174,8 +174,8 @@ class Avatar {
                 object.children[0].scale.set(0.4, 0.4, 0.4);
                 object.children[0].rotation.set(0.2, -1.2, 0);
                 object.children[0].position.set(2, -1.4 , -6);
-                thatCamera.children[2].material.transparent = true;
-                thatCamera.children[2].material.opacity = 0.0;
+                object.children[0].material.transparent = true;
+                object.children[0].material.opacity = 0.0;
                 thatCamera.add(object.children[0]);
 
             });
