@@ -27,7 +27,6 @@ class TheScene extends Physijs.Scene {
     this.axis = new THREE.AxisHelper (25);
     this.add (this.axis);
     this.add (this.model);
-    this.changeWeapon();
   }
   
   /// It creates the camera and adds it to the graph

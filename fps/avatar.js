@@ -93,19 +93,17 @@ class Avatar {
     }
 
     changeWeapon() {
-        this.camera.children[1].material.transparent = true;
-        this.camera.children[1].material.opacity = 0.0;
         if (this.activeWeapon == 0) {
-            this.camera.children[1].material.transparent = true;
-            this.camera.children[1].material.opacity = 0.0;
-            this.camera.children[2].material.transparent = false;
-            this.camera.children[2].material.opacity = 1.0;
-            this.activeWeapon = 1;
-        } else if (this.activeWeapon == 1) {
             this.camera.children[2].material.transparent = true;
             this.camera.children[2].material.opacity = 0.0;
             this.camera.children[1].material.transparent = false;
             this.camera.children[1].material.opacity = 1.0;
+            this.activeWeapon = 1;
+        } else if (this.activeWeapon == 1) {
+            this.camera.children[1].material.transparent = true;
+            this.camera.children[1].material.opacity = 0.0;
+            this.camera.children[2].material.transparent = false;
+            this.camera.children[2].material.opacity = 1.0;
             this.activeWeapon = 0;
         }
     }
@@ -144,26 +142,6 @@ class Avatar {
         mtlLoader.setPath( "fps/models/" );
         mtlLoader.load( "material.mtl" , function ( materials ) {
             materials.preload();
-
-            objLoader.setMaterials( materials );
-            objLoader.setPath( "fps/models/" );
-            objLoader.load( "escopeta.obj", function ( object ) {
-                texture = THREE.ImageUtils.loadTexture('fps/models/escopetatext.png');
-                object.children[0].material = new THREE.MeshLambertMaterial({map: texture});
-                
-                //Escopeta
-                object.children[0].position.set(0, 0, 0);
-                object.children[0].scale.set(0.4, 0.4, 0.4);
-                object.children[0].rotation.set(0.2, -1.2, 0);
-                object.children[0].position.set(2, -1.4 , -6);
-                thatCamera.add(object.children[0]);
-
-            });
-        });
-
-        mtlLoader.setPath( "fps/models/" );
-        mtlLoader.load( "material.mtl" , function ( materials ) {
-            materials.preload();
             
             objLoader.setMaterials( materials );
             objLoader.setPath( "fps/models/" );
@@ -177,6 +155,28 @@ class Avatar {
                 object.children[1].rotation.set(0.1, 3.4, 0);
                 object.children[1].position.set(2, -0.8, -2);
                 thatCamera.add(object.children[1]);
+
+            });
+        });
+
+        mtlLoader.setPath( "fps/models/" );
+        mtlLoader.load( "material.mtl" , function ( materials ) {
+            materials.preload();
+
+            objLoader.setMaterials( materials );
+            objLoader.setPath( "fps/models/" );
+            objLoader.load( "escopeta.obj", function ( object ) {
+                texture = THREE.ImageUtils.loadTexture('fps/models/escopetatext.png');
+                object.children[0].material = new THREE.MeshLambertMaterial({map: texture});
+                
+                //Escopeta
+                object.children[0].position.set(0, 0, 0);
+                object.children[0].scale.set(0.4, 0.4, 0.4);
+                object.children[0].rotation.set(0.2, -1.2, 0);
+                object.children[0].position.set(2, -1.4 , -6);
+                thatCamera.children[2].material.transparent = true;
+                thatCamera.children[2].material.opacity = 0.0;
+                thatCamera.add(object.children[0]);
 
             });
         });
