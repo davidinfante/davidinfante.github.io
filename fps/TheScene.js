@@ -108,6 +108,8 @@ class TheScene extends Physijs.Scene {
    * @controls - The GUI information
    */
   animate (GUIcontrols, delta) {
+    console.log (this.avatar.getActiveWeapon());
+
     this.simulate();
     this.axis.visible = GUIcontrols.axis;
 

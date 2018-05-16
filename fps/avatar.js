@@ -16,7 +16,7 @@ class Avatar {
         scene.add(this.avatar);
         this.camera = camera;
         this.controls = controls;
-        this.activeWeapon = 0;
+        this.activeWeapon = null;
         this.goingUp = true;
         this.recoil = true;
         this.posLimite = 82;
@@ -155,6 +155,7 @@ class Avatar {
                 object.children[1].rotation.set(0.1, 3.4, 0);
                 object.children[1].position.set(2, -0.8, -2);
                 thatCamera.add(object.children[1]);
+                this.activeWeapon = 0;
 
             });
         });
