@@ -20,12 +20,12 @@ class Skybox extends THREE.Object3D {
     var loader = new THREE.TextureLoader();
 
     var material = [];
-    material.push( new THREE.MeshBasicMaterial( { map: loader.load("fps/imgs/Skybox/ft.JPG"), side: THREE.BackSide } ) );
-    material.push( new THREE.MeshBasicMaterial( { map: loader.load("fps/imgs/Skybox/bk.JPG"), side: THREE.BackSide } ) );
-    material.push( new THREE.MeshBasicMaterial( { map: loader.load("fps/imgs/Skybox/up.JPG"), side: THREE.BackSide } ) );
-    material.push( new THREE.MeshBasicMaterial( { map: loader.load("fps/imgs/Skybox/dn.JPG"), side: THREE.BackSide } ) );
-    material.push( new THREE.MeshBasicMaterial( { map: loader.load("fps/imgs/Skybox/rt.JPG"), side: THREE.BackSide } ) );
-    material.push( new THREE.MeshBasicMaterial( { map: loader.load("fps/imgs/Skybox/lf.JPG"), side: THREE.BackSide } ) );
+    material.push( new THREE.MeshBasicMaterial( { map: loader.load("imgs/Skybox/ft.JPG"), side: THREE.BackSide } ) );
+    material.push( new THREE.MeshBasicMaterial( { map: loader.load("imgs/Skybox/bk.JPG"), side: THREE.BackSide } ) );
+    material.push( new THREE.MeshBasicMaterial( { map: loader.load("imgs/Skybox/up.JPG"), side: THREE.BackSide } ) );
+    material.push( new THREE.MeshBasicMaterial( { map: loader.load("imgs/Skybox/dn.JPG"), side: THREE.BackSide } ) );
+    material.push( new THREE.MeshBasicMaterial( { map: loader.load("imgs/Skybox/rt.JPG"), side: THREE.BackSide } ) );
+    material.push( new THREE.MeshBasicMaterial( { map: loader.load("imgs/Skybox/lf.JPG"), side: THREE.BackSide } ) );
 
     this.skybox = new THREE.Mesh( geometry, material );
     

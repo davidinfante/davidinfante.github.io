@@ -74,12 +74,12 @@ class Bullets {
         
         if (weapon == 0) {
             var sound = new Howl({
-              src: ['fps/sounds/m4a1_s.mp3'], volume: 0.1
+              src: ['sounds/m4a1_s.mp3'], volume: 0.1
             });
             sound.play();
         } else if (weapon == 1) {
             var sound = new Howl({
-              src: ['fps/sounds/escopeta.mp3'], volume: 0.1
+              src: ['sounds/escopeta.mp3'], volume: 0.1
             });
             sound.play();
         }

@@ -15,8 +15,8 @@ class Map {
     this.map = [];
 
     var loader = new THREE.TextureLoader();
-    var textura = loader.load ("fps/imgs/wood.jpg");
-    var diana = loader.load ("fps/imgs/diana.png");
+    var textura = loader.load ("imgs/wood.jpg");
+    var diana = loader.load ("imgs/diana.png");
 
     var mat = Physijs.createMaterial(new THREE.MeshPhongMaterial ({map: textura}),1,0);
     
@@ -75,7 +75,7 @@ class Map {
 
     objetivo1.addEventListener ( 'collision' , function (elOtroObjeto , velocidad , rotacion , normal) { 
       var sound = new Howl({
-        src: ['fps/sounds/death.mp3'], volume: 0.3
+        src: ['sounds/death.mp3'], volume: 0.3
       });
       sound.play();
     });
@@ -89,7 +89,7 @@ class Map {
 
     objetivo2.addEventListener ( 'collision' , function (elOtroObjeto , velocidad , rotacion , normal) { 
       var sound = new Howl({
-        src: ['fps/sounds/death.mp3'], volume: 0.3
+        src: ['sounds/death.mp3'], volume: 0.3
       });
       sound.play();
     });
