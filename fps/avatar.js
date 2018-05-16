@@ -16,7 +16,7 @@ class Avatar {
         scene.add(this.avatar);
         this.camera = camera;
         this.controls = controls;
-        this.activeWeapon = null;
+        this.activeWeapon = 0;
         this.goingUp = true;
         this.recoil = true;
         this.posLimite = 82;
