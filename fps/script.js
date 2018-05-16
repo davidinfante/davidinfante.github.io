@@ -29,6 +29,7 @@ moveBackward = false;
 moveLeft = false;
 moveRight = false;
 jumping = false;
+disparando = false;
 
 /// It creates the GUI and, optionally, adds statistic information
 /**
@@ -37,16 +38,12 @@ jumping = false;
 function createGUI (withStats) {
   GUIcontrols = new function() {
     this.axis = false;
-    this.lightonoff = true;
-    this.lightIntensity = 1;
   }
 
   var gui = new dat.GUI();
 
   var axisLights = gui.addFolder ('Axis and Lights');
     axisLights.add(GUIcontrols, 'axis').name('Axis on/off :');
-    axisLights.add(GUIcontrols, 'lightonoff').name('Light on/off :');
-    axisLights.add(GUIcontrols, 'lightIntensity', 0, 1.0).name('Light intensity :');
 
     if (withStats)
       stats = initStats();
@@ -85,10 +82,10 @@ function setMessage (str) {
  * @param event - Mouse information
  */
 function onMouseDown (event) {
-  if(event.buttons == 1)
+  if(event.buttons == 1) {
     scene.dispara();
-  else if(event.buttons == 2)
-    scene.jump();
+    disparando = true;
+  }
 }
 
 /// It processes keyboard information
@@ -123,7 +120,7 @@ function onKeyDown (event) {
       break;
 
     case 81: //q
-      scene.changeWeapon();
+      if (!disparando) scene.changeWeapon();
       break;
 
   }
@@ -155,10 +152,6 @@ function onKeyUp (event) {
     case 68: // d
       moveRight = false;
       break;
-
-    case 32: // space
-      jumping = false;
-      break;
   }
 }
 
@@ -168,7 +161,7 @@ function onKeyUp (event) {
  * @param event - Mouse information
  */
 function onMouseWheel (event) {
-  scene.changeWeapon();
+  if (!disparando) scene.changeWeapon();
 }
 
 /// It processes the window size changes

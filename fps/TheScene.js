@@ -8,7 +8,7 @@ class TheScene extends Physijs.Scene {
   constructor (renderer, aCamera) {
 
     super();
-    this.setGravity(new THREE.Vector3 (0, -20, 0));
+    this.setGravity(new THREE.Vector3 (0, -50, 0));
 
     // Attributes
     this.ambientLight = null;
@@ -27,8 +27,7 @@ class TheScene extends Physijs.Scene {
     this.add (this.axis);
     this.model = this.createModel ();
     this.add (this.model);
-
-    this.loadWeapons();
+    this.avatar.loadWeapons();
   }
   
   /// It creates the camera and adds it to the graph
@@ -49,16 +48,14 @@ class TheScene extends Physijs.Scene {
   }
 
   dispara() {
-    if(this.index >= this.maxBullets){
+    if(this.index >= this.maxBullets) {
       this.index = 0;
       this.bullets.reload();
     }
-    this.bullets.dispara(this.index, this.avatar.getPosition(), this.camera.getWorldDirection(), this.avatar.getActiveWeapon());
-    this.index++;
-  }
-
-  jump(){
-    this.avatar.jump();
+    if (!disparando) {
+      this.bullets.dispara(this.index, this.avatar.getPosition(), this.camera.getWorldDirection(), this.avatar.getActiveWeapon());
+      this.index++;
+    }
   }
   
   /// It creates lights and adds them to the graph
@@ -94,7 +91,7 @@ class TheScene extends Physijs.Scene {
     model.add(this.skybox);
 
     var loader = new THREE.TextureLoader();
-    var textura = loader.load ("fps/imgs/wood.jpg");
+    var textura = loader.load ("fps/imgs/bullettext.jpg");
 
     this.bullets = new Bullets(this.maxBullets, this, (new THREE.MeshPhongMaterial ({map: textura})));
 
@@ -109,8 +106,6 @@ class TheScene extends Physijs.Scene {
 
     return model;
   }
-
-
   
   /// 
   /**
@@ -119,8 +114,6 @@ class TheScene extends Physijs.Scene {
   animate (GUIcontrols, delta) {
     this.simulate();
     this.axis.visible = GUIcontrols.axis;
-    this.spotLight.visible = GUIcontrols.lightonoff;
-    this.spotLight.intensity = GUIcontrols.lightIntensity;
 
     if (moveForward) this.avatar.moveForward();
     if (moveBackward) this.avatar.moveBackward();
@@ -131,15 +124,15 @@ class TheScene extends Physijs.Scene {
       this.avatar.jump();
     }
 
+    if (disparando) {
+      this.avatar.animateWeapon();
+    }
+
     this.avatar.updateControls();
   }
 
   changeWeapon() {
     this.avatar.changeWeapon();
-  }
-
-  loadWeapons() {
-    this.avatar.loadWeapons();
   }
 
   /// It returns the camera
