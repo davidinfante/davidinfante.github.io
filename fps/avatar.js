@@ -134,7 +134,7 @@ class Avatar {
 
     loadWeapons() {
         var thatCamera = this.camera;
-        var thatActiveWeapon = this.activeWeapon;
+        var that = this;
 
         var mtlLoader = new THREE.MTLLoader();
         var objLoader = new THREE.OBJLoader();
@@ -156,7 +156,7 @@ class Avatar {
                 object.children[1].rotation.set(0.1, 3.4, 0);
                 object.children[1].position.set(2, -0.8, -2);
                 thatCamera.add(object.children[1]);
-                thatActiveWeapon = 0;
+                that.activeWeapon = 0;
 
             });
         });
