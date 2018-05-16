@@ -27,9 +27,6 @@ class TheScene extends Physijs.Scene {
     this.axis = new THREE.AxisHelper (25);
     this.add (this.axis);
     this.add (this.model);
-
-    this.camera.children[2].material.transparent = true;
-    this.camera.children[2].material.opacity = 0.0;
   }
   
   /// It creates the camera and adds it to the graph
