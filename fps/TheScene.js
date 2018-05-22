@@ -10,30 +10,95 @@ class TheScene extends Physijs.Scene {
     super();
     this.setGravity(new THREE.Vector3 (0, -50, 0));
 
-    // Attributes
     this.camera = aCamera;
-    this.createCamera (renderer);
+    this.createCrosshair(renderer);
+
     this.avatar = null;
     this.map = null;
+    this.enemies = null;
     this.skybox = null;
     this.Bullets = null;
     this.index = 0;
     this.maxBullets = 20;
-    this.model = this.createModel();
+    this.actualAmmo = 20; //Balas totales antes de acabar el juego
+    this.score = 0;
+
+    this.createHUD();
+
+    this.createAvatar();
     this.avatar.loadWeapons();
+    this.place = this.createPlace();
+    this.createBullets();
+    this.createEnemies();
+
+
     this.ambientLight = null;
     this.spotLight = null;
-    this.createLights ();
-    this.axis = new THREE.AxisHelper (25);
-    this.add (this.axis);
-    this.add (this.model);
+    this.createLights();
+
+    this.add(this.place);
   }
   
+  createHUD() {
+    var score = document.createElement('div');
+    score.id = "score";
+    score.style.position = 'absolute';
+    score.style.width = 1;
+    score.style.height = 1;
+    score.innerHTML = "Puntuación: " + this.score;
+    score.style.top = 50 + 'px';
+    score.style.left = 50 + 'px';
+    score.style.fontSize = 50 + 'px';
+    score.style.color = "white";
+    document.body.appendChild(score);
+    var ammo = document.createElement('div');
+    ammo.id = "ammo";
+    ammo.style.position = 'absolute';
+    ammo.style.width = 1;
+    ammo.style.height = 1;
+    ammo.innerHTML = "Munición: " + this.actualAmmo;
+    ammo.style.top = 100 + 'px';
+    ammo.style.left = 50 + 'px';
+    ammo.style.fontSize = 50 + 'px';
+    ammo.style.color = "white";
+    document.body.appendChild(ammo);
+
+    var finalScore = document.createElement('div');
+    finalScore.id = "finalScore";
+    finalScore.style.position = 'absolute';
+    finalScore.style.width = 1;
+    finalScore.style.height = 1;
+    finalScore.innerHTML = "Puntuación final: " + this.score;
+    finalScore.style.top = 400 + 'px';
+    finalScore.style.left = 750 + 'px';
+    finalScore.style.fontSize = 50 + 'px';
+    finalScore.style.color = "white";
+    finalScore.style.display = "none";
+    document.body.appendChild(finalScore);
+    var restart = document.createElement('div');
+    restart.id = "restart";
+    restart.style.position = 'absolute';
+    restart.style.width = 1;
+    restart.style.height = 1;
+    restart.innerHTML = "Pulsa la tecla P para volver a jugar";
+    restart.style.top = 450 + 'px';
+    restart.style.left = 600 + 'px';
+    restart.style.fontSize = 50 + 'px';
+    restart.style.color = "white";
+    restart.style.display = "none";
+    document.body.appendChild(restart);
+  }
+
+  updateHUD() {
+    var text = document.getElementById("ammo");
+    text.innerHTML = "Munición: " + this.actualAmmo;
+  }
+
   /// It creates the camera and adds it to the graph
   /**
    * @param renderer - The renderer associated with the camera
    */
-  createCamera (renderer) {
+  createCrosshair(renderer) {
     // Create the Crosshair
     var crosshair = new Crosshair();
     this.camera.add( crosshair );
@@ -54,11 +119,12 @@ class TheScene extends Physijs.Scene {
     if (!disparando) {
       this.bullets.dispara(this.index, this.avatar.getPosition(), this.camera.getWorldDirection(), this.avatar.getActiveWeapon());
       this.index++;
+      this.actualAmmo--;
     }
   }
   
   /// It creates lights and adds them to the graph
-  createLights () {
+  createLights() {
     // add subtle ambient lighting
     this.ambientLight = new THREE.AmbientLight(0xccddee, 0.35);
     this.add (this.ambientLight);
@@ -74,33 +140,65 @@ class TheScene extends Physijs.Scene {
     this.add (this.spotLight);
   }
   
-  /// It creates the geometric model: ground
+  /// It creates the place
   /**
-   * @return The model
+   * @return place
    */
-  createModel () {
-    var model = new THREE.Object3D();
-
-    this.avatar = new Avatar(this.camera, controls, this);
+  createPlace() {
+    var place = new THREE.Object3D();    
 
     this.skybox = new Skybox();
-    model.add(this.skybox);
-
-    var loader = new THREE.TextureLoader();
-    var textura = loader.load ("fps/imgs/bullettext.jpg");
-
-    this.bullets = new Bullets(this.maxBullets, this, (new THREE.MeshPhongMaterial ({map: textura})));
+    place.add(this.skybox);
 
     //Creates the map
-    var loader = new THREE.TextureLoader();
-    var textura = loader.load ("fps/imgs/wood.jpg");
-    var mat = Physijs.createMaterial(new THREE.MeshPhongMaterial ({map: textura}),1,0);
     this.map = new Map();
     for (var i = 0; i < this.map.getMapSize(); ++i) {
       this.add(this.map.getMap(i));
     }
 
-    return model;
+    return place;
+  }
+
+  /// It creates the avatar
+  /**
+   *
+   */
+  createAvatar() {
+    this.avatar = new Avatar(this.camera, this);
+  }
+
+  /// It creates the bullets
+  /**
+   *
+   */
+  createBullets() {
+    var loader = new THREE.TextureLoader();
+    var textura = loader.load ("fps/imgs/bullettext.jpg");
+    this.bullets = new Bullets(this.maxBullets, this, (new THREE.MeshPhongMaterial ({map: textura})));
+  }
+
+  /// It creates the enemies
+  /**
+   *
+   */
+  createEnemies() {
+    this.enemies = new Enemies();
+    for (var i = 0; i < this.enemies.getEnemiesSize(); ++i) {
+      this.add(this.enemies.getEnemies(i));
+    }
+  }
+
+  endGame() {
+    enableControls = false;
+    controls.enabled = false;
+    moveForward = false;
+    moveBackward = false;
+    moveLeft = false;
+    moveRight = false;
+    jumping = false;
+
+    document.getElementById("finalScore").style.display = 'inherit';
+    document.getElementById("restart").style.display = 'inherit';
   }
   
   /// 
@@ -108,10 +206,7 @@ class TheScene extends Physijs.Scene {
    * @controls - The GUI information
    */
   animate (GUIcontrols, delta) {
-    console.log (this.avatar.getActiveWeapon());
-
     this.simulate();
-    this.axis.visible = GUIcontrols.axis;
 
     if (moveForward) this.avatar.moveForward();
     if (moveBackward) this.avatar.moveBackward();
@@ -127,6 +222,12 @@ class TheScene extends Physijs.Scene {
     }
 
     this.avatar.updateControls();
+
+    this.updateHUD();
+
+    if (this.actualAmmo == 0) {
+      this.endGame();
+    }
   }
 
   changeWeapon() {
@@ -158,5 +259,21 @@ class TheScene extends Physijs.Scene {
     this.camera.updateProjectionMatrix();
   }
   
+  newGame() {
+    document.getElementById("finalScore").style.display = 'none';
+    document.getElementById("restart").style.display = 'none';
+
+    this.avatar.setInitialPosition();
+    this.actualAmmo = 20;
+    this.score = 0;
+    for (var i = 0; i < this.enemies.getEnemiesSize(); ++i) {
+      this.remove(this.enemies.getEnemies(i));
+    }
+    this.createEnemies();
+
+    enableControls = true;
+    controls.enabled = true;
+  }
+
 }
 
