@@ -77,7 +77,7 @@ function setMessage (str) {
  */
 function onMouseDown (event) {
   if (enableControls) {
-    if(event.buttons == 1) {
+    if(event.buttons == 1 && blocker.style.display == 'none') {
       scene.dispara();
       disparando = true;
     }
@@ -209,6 +209,7 @@ $(function () {
 
 
   var instructions = document.getElementById( 'instructions' );
+  var title = document.getElementById('title');
   var havePointerLock = 'pointerLockElement' in document || 'mozPointerLockElement' in document || 'webkitPointerLockElement' in document;
 
   if ( havePointerLock ) {
@@ -222,15 +223,23 @@ $(function () {
         controlsEnabled = true;
         controls.enabled = true;
 
+        enableControls = true;
+
         blocker.style.display = 'none';
 
       } else {
 
-        controls.enabled = false;
 
         blocker.style.display = 'block';
 
         instructions.style.display = '';
+
+        //title.innerHTML = "PAUSA";
+        instructions.style.fontSize = "50px";
+        instructions.innerHTML = "PAUSA";
+
+        enableControls = false;
+        controls.enabled = false;
 
       }
 
@@ -281,8 +290,6 @@ $(function () {
   window.addEventListener("keyup", onKeyUp, true);
   window.addEventListener ("mousewheel", onMouseWheel, true);   // For Chrome an others
   window.addEventListener ("DOMMouseScroll", onMouseWheel, true); // For Firefox
-
-  //raycaster = new THREE.Raycaster( new THREE.Vector3(), new THREE.Vector3( 0, - 1, 0 ), 0, 10 );
 
   // create a scene, that will hold all our elements such as objects, cameras and lights.
   scene = new TheScene (renderer.domElement, camera);
