@@ -1,0 +1,45 @@
+body {
+    background-color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.header-background {
+    background-color: #4287f5;
+}
+
+.header {
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 40%;
+    padding: 20px 50px;
+    margin: 0px;
+    color: whitesmoke;
+    line-height: 1.40em;
+}
+
+.grid {
+    display: grid;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+
+    color: whitesmoke;
+}
+
+.title {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.description {
+    width: 65%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.demo {
+    width: 65%;
+    padding-top: 10px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
