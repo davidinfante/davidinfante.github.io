@@ -7,64 +7,76 @@
     <meta name="Abstract" content="Software Engineer">
     <meta name="description" content="Computer Engineering graduate at University of Granada, Spain. Specialized in software engineering.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="styles.css">
     <title>David Infante Casas - Software Engineer</title>
 </head>
 <body>
-    <div class="header-background">
-        <div class="header">
-            <h1>DAVID INFANTE CASAS</h1>
-            <h2>
-                E-mail: davidinfante1997@gmail.com
-                </br>
-                LinkedIn: <a href="https://www.linkedin.com/in/davidinfante/">My profile</a>
-            </h2>
-            <h2>
-                Computer Engineering graduate at University of Granada, Spain. Specialized in software engineering.
-                Currently working as a software engineer in Madrid!
-                I really like developing stuff and learning new things.
-                </br>
-                I can communicate in spanish (native), english (C1) and japanese (N5).
-            </h2>
-            <h3>Some languages or frameworks I have used:</h3>
-            <ul>
-                <li>JavaScript</li>
-                <li>Python</li>
-                <li>Vuejs</li>
-                <li>Angular</li>
-                <li>Flask</li>
-                <li>Java</li>
-                <li>C#</li>
-                <li>C++</li>
-                <li>MongoDB</li>
-                <li>SQL</li>
-            </ul>
-        </div>
-    </div>
+    <table class="header">
+        <tr>
+            <td>
+                <h1>DAVID INFANTE CASAS</h1>
+                <h2>
+                    E-mail: davidinfante1997@gmail.com
+                    </br>
+                    LinkedIn: <a href="https://www.linkedin.com/in/davidinfante/">My profile</a>
+                </h2>
+                <h2>
+                    Computer Engineering graduate at University of Granada, Spain. Specialized in software engineering.
+                    Currently working as a software engineer in Madrid!
+                    I really like developing stuff and learning new things 😎.
+                    </br>
+                    I can communicate in spanish (native), english (C1) and japanese (N5).
+                </h2>
+                <h3>Some languages or frameworks I have used:</h3>
+                <ul>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                    <li>Vue.js</li>
+                    <li>Angular</li>
+                    <li>Node.js</li>
+                    <li>Flask</li>
+                    <li>C++</li>
+                    <li>MongoDB</li>
+                    <li>SQL</li>
+                </ul>
+            </td>
+            <td>
+                <div id="vue-app-animation">
+                    <cute-animation></cute-animation>
+                </div>
+            </td>
+        </tr>
+    </table>
 
     <div class="grid">
         <h1 class="title">Personal projects</h1>
 
-        <!-- Work Agenda -->
-        <div class="description">
-            <h3>Work Agenda</h3>
-            <p>
-                Work Agenda is a web based agenda with the purpose of administrating a law firm.
-                Developed using Angular for frontend, Flask for the backend and MongoDB as the database. Also uses Angular Material for the UI.
-                </br>
-                The application fulfils the purpose of administrating clients, records, appointments and so on.
-                The user can also check appointments between date ranges among other useful functions like creating views for printing record covers
-                or finding items using the multiple filters the application has.
-                </br>
-                Check the video on the right for a demo (some parts might be censored due to personal information).
-            </p>
-        </div>
-        <div class="demo">
-            <video width="500" height="300" controls>
-                <source src="media/WA_DEMO.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+        <table>
+            <!-- Work Agenda -->
+            <tr>
+                <td class="grid-column">
+                    <h3>Work Agenda</h3>
+                    <p>
+                        Work Agenda is a web based agenda with the purpose of administrating a law firm.
+                        Developed using Angular for frontend, Flask for the backend and MongoDB as the database. Also uses Angular Material for the UI.
+                        </br>
+                        The application fulfils the purpose of administrating clients, records, appointments and so on.
+                        The user can also check appointments between date ranges among other useful functions like creating views for printing record covers
+                        or finding items using the multiple filters the application has.
+                        </br>
+                        Check the video on the right for a demo (some parts might be censored due to personal information).
+                    </p>
+                </td>
+                <td class="grid-column">
+                    <video width="500" height="300" controls>
+                        <source src="media/WA_DEMO.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </td>
+            </tr>
+        </table>
     </div>
+    <script type="text/javascript" src="functionality.js"></script>
 </body>
 </html>

@@ -1,15 +1,15 @@
 body {
-    background-color: black;
+    background-color: rgb(20, 24, 27);
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.header-background {
-    background-color: #4287f5;
+table {
+    width: 100%;
 }
 
 .header {
+    background-color: #0f3f8c;
     font-family: 'Source Sans Pro', sans-serif;
-    width: 40%;
     padding: 20px 50px;
     margin: 0px;
     color: whitesmoke;
@@ -17,29 +17,155 @@ body {
 }
 
 .grid {
-    display: grid;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 20px;
-
     color: whitesmoke;
 }
 
 .title {
     text-align: center;
-    grid-column-start: 1;
-    grid-column-end: 3;
 }
 
-.description {
-    width: 65%;
-    grid-column-start: 1;
-    grid-column-end: 2;
+.grid-column {
+    /* width: 50%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 20px; */
 }
 
-.demo {
-    width: 65%;
-    padding-top: 10px;
-    grid-column-start: 2;
-    grid-column-end: 3;
+/* 
+    CUTE ANIMATION
+*/
+
+body {
+    background-color: black;
+}
+
+#canvas {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    background-color: black;
+    border-width: 5px;
+    border-color: rgb(43, 43, 160);
+    border-style: groove;
+}
+
+#main {
+    width: 5px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(100, 201, 70);
+}
+
+#shadow0 {
+    width: 5px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(105, 201, 80);
+}
+
+#shadow1 {
+    width: 5px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(110, 201, 90);
+}
+
+#shadow2 {
+    width: 5px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(115, 201, 100);
+}
+
+#shadow3 {
+    width: 5px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(120, 201, 110);
+}
+
+#shadow4 {
+    width: 5px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(125, 201, 120);
+}
+
+#shadow5 {
+    width: 5px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(130, 201, 130);
+}
+
+#shadow6 {
+    width: 5px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(135, 201, 140);
+}
+
+#shadow7 {
+    width: 5px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(140, 201, 150);
+}
+
+#collision0 {
+    width: 5px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(110, 177, 154);
+    visibility: hidden;
+}
+
+#collision1 {
+    width: 5px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(110, 177, 154);
+    visibility: hidden;
+}
+
+#collision2 {
+    width: 5px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(110, 177, 154);
+    visibility: hidden;
+}
+
+#collision3 {
+    width: 5px;
+    height: 5px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgb(110, 177, 154);
+    visibility: hidden;
 }
