@@ -113,7 +113,7 @@ Vue.component('cute-animation', {
         }
         
         function computeDirection() {
-            if (directionX == direction.XPOSITIVE && posX >= (parseFloat(canvasStyle.width) - parseFloat(mainStyle.width))) {
+            if (directionX == direction.XPOSITIVE && posX >= (parseFloat(canvasStyle.width) - parseFloat(mainStyle.width) * 4)) {
                 directionX = direction.XNEGATIVE;
                 collision = true;
             } else if (directionX == direction.XNEGATIVE && posX <= 0) {
@@ -121,7 +121,7 @@ Vue.component('cute-animation', {
                 collision = true;
             }
         
-            if (directionY == direction.YPOSITIVE && posY >= (parseFloat(canvasStyle.height) - parseFloat(mainStyle.width))) {
+            if (directionY == direction.YPOSITIVE && posY >= (parseFloat(canvasStyle.height) - parseFloat(mainStyle.width) * 4)) {
                 directionY = direction.YNEGATIVE;
                 collision = true;
             } else if (directionY == direction.YNEGATIVE && posY <= 0) {

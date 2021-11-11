@@ -1,82 +1,106 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="imagetoolbar" content="no">
     <meta name="Author" content="David Infante Casas, davidinfante1997@gmail.com">
     <meta name="Abstract" content="Software Engineer">
-    <meta name="description" content="Computer Engineering graduate at University of Granada, Spain. Specialized in software engineering.">
+    <meta name="description"
+        content="Computer Engineering graduate at University of Granada, Spain. Specialized in software engineering.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
     <link rel="stylesheet" type="text/css" media="screen" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>David Infante Casas - Software Engineer</title>
 </head>
+
 <body>
-    <table class="header">
-        <tr>
-            <td>
+    <div class="container-fluid text">
+        <div class="row header">
+            <div class="col-12 col-lg-8">
                 <h1>DAVID INFANTE CASAS</h1>
+                <a href="https://www.linkedin.com/in/davidinfante/">
+                    <img src="./media/linkedin.png" alt="linkedin" width="40" height="40">
+                </a>
+                </br>
+                <h2>📫 davidinfante1997@gmail.com</h2>
                 <h2>
-                    E-mail: davidinfante1997@gmail.com
-                    </br>
-                    LinkedIn: <a href="https://www.linkedin.com/in/davidinfante/">My profile</a>
-                </h2>
-                <h2>
-                    Computer Engineering graduate at University of Granada, Spain. Specialized in software engineering.
+                    Computer Engineering graduate at University of Granada, Spain. Specialized in software
+                    engineering.
                     Currently working as a software engineer in Madrid!
-                    I really like developing stuff and learning new things 😎.
+                    </br>
+                    I really like developing stuff while keeping my code clean and learning new things 😎
                     </br>
                     I can communicate in spanish (native), english (C1) and japanese (N5).
                 </h2>
-                <h3>Some languages or frameworks I have used:</h3>
-                <ul>
-                    <li>JavaScript</li>
-                    <li>Python</li>
-                    <li>Vue.js</li>
-                    <li>Angular</li>
-                    <li>Node.js</li>
-                    <li>Flask</li>
-                    <li>C++</li>
-                    <li>MongoDB</li>
-                    <li>SQL</li>
-                </ul>
-            </td>
-            <td>
+                <h3>Some languages or frameworks I have worked with:</h3>
+                <div>
+                    <img src="./media/js.png" alt="JS" width="50" height="50">
+                    <img src="./media/ts.png" alt="TS" width="50" height="50">
+                    <img src="./media/vue.png" alt="Vue" width="50" height="50">
+                    <img src="./media/angular.png" alt="Angular" width="50" height="50">
+                    <img src="./media/python.png" alt="Python" width="50" height="50">
+                    <img src="./media/node.png" alt="NodeJS" width="50" height="50">
+                    <img src="./media/mongodb.png" alt="MongoDB" width="50" height="50">
+                    <img src="./media/MySQL.png" alt="MySQL" width="70" height="50">
+                </div>
+                </br>
+                <h3>
+                    I also like:
+                    </br>
+                    🎮 🎵🎸 🥳🎉 🍴 🚴‍♂️
+                </h3>
+                <h3>
+                    Feel free to contact me anytime 😁
+                </h3>
+            </div>
+            <div class="col-12 col-lg-4 align-self-center">
                 <div id="vue-app-animation">
                     <cute-animation></cute-animation>
                 </div>
-            </td>
-        </tr>
-    </table>
+                </br>
+            </div>
+        </div>
 
-    <div class="grid">
-        <h1 class="title">Personal projects</h1>
+        </br>
 
-        <table>
-            <!-- Work Agenda -->
-            <tr>
-                <td class="grid-column">
+        <div class="personal-projects">
+            <div class="row">
+                <h1 class="col center">Personal projects</h1>
+            </div>
+
+            </br>
+            
+            <div class="row">
+                <div class="col-12 col-lg-8 align-self-center">
                     <h3>Work Agenda</h3>
                     <p>
                         Work Agenda is a web based agenda with the purpose of administrating a law firm.
-                        Developed using Angular for frontend, Flask for the backend and MongoDB as the database. Also uses Angular Material for the UI.
+                        Developed using Angular for frontend, Flask for the backend and MongoDB as the database. Also
+                        uses Angular Material for the UI.
                         </br>
                         The application fulfils the purpose of administrating clients, records, appointments and so on.
-                        The user can also check appointments between date ranges among other useful functions like creating views for printing record covers
+                        The user can also check appointments between date ranges among other useful functions like
+                        creating views for printing record covers
                         or finding items using the multiple filters the application has.
                         </br>
-                        Check the video on the right for a demo (some parts might be censored due to personal information).
+                        Check the video on the right for a demo (some parts might be censored due to personal
+                        information).
                     </p>
-                </td>
-                <td class="grid-column">
-                    <video width="500" height="300" controls>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <video class="video" controls>
                         <source src="media/WA_DEMO.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                </td>
-            </tr>
-        </table>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script type="text/javascript" src="functionality.js"></script>
 </body>
+
 </html>
