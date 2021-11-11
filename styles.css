@@ -4,11 +4,6 @@ body {
 
 .header {
     background-image: repeating-linear-gradient(#0f3f8c, #2f528a, #4c648b);
-    /* padding: 20px 50px; */
-}
-
-.personal-projects {
-    /* padding: 20px 50px; */
 }
 
 .text {
